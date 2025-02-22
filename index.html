@@ -8,11 +8,12 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/fontawesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <style>
       .container {
         width: 60% !important;
-        
       }
       .s {
         width: 60%;
@@ -20,35 +21,41 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-auto-rows: 230px;
-        gap:10px;
+        gap: 10px;
         position: relative;
       }
       .col {
         border: 1px solid black;
         background-size: 100% 100%;
       }
-      
-      .status{
+
+      .status {
         display: none;
         background-color: black;
         width: 100%;
         height: 100%;
+        justify-content: center;
+        align-items: center;
         position: absolute;
+        font-size: 80px;
+        color: yellow;
+        text-shadow: 10px -10px 4px rgba(226, 230, 24, 0.7);
+        background-size: 100% 100%;
       }
 
-      @media screen and (max-width:800px) {
-        .s{
-            width:80% !important;
-            margin-left: 10%;
-            grid-auto-rows: 180px;
+      @media screen and (max-width: 800px) {
+        .s {
+          width: 80% !important;
+          margin-left: 10%;
+          grid-auto-rows: 180px;
         }
       }
 
-      @media screen and (max-width:400px) {
-        .s{
-            width: 100% !important;
-            margin-left: 0%;
-            grid-auto-rows: 150px;
+      @media screen and (max-width: 400px) {
+        .s {
+          width: 100% !important;
+          margin-left: 0%;
+          grid-auto-rows: 150px;
         }
       }
     </style>
@@ -56,7 +63,7 @@
   <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="javascript:void(0)">Logo</a>
+        <a class="navbar-brand" href="javascript:void(0)">Tic Tac Toe</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -66,19 +73,19 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="mynavbar">
-          <ul class="navbar-nav me-auto">
+          <ul class="navbar-nav mx-auto">
             <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0)">Link</a>
+              <a class="nav-link" href="javascript:void(0)">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0)">Link</a>
+              <a class="nav-link" href="javascript:void(0)">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0)">Link</a>
+              <a class="nav-link" href="javascript:void(0)">About</a>
             </li>
           </ul>
           <form class="d-flex">
-            <input class="form-control me-2" type="text" placeholder="Search" />
+            <button class="btn btn-primary me-2">Email</button>
             <button class="btn btn-primary" type="button">Search</button>
           </form>
         </div>
@@ -95,42 +102,134 @@
         <div class="col"></div>
         <div class="col"></div>
         <div class="col"></div>
-        <div class="status">
+        <div class="status">WINNER</div>
+      </div>
+    </div>
+    <footer class="bg-dark text-white text-center text-lg-start mt-5">
+      <div class="container p-4">
+        <div class="row">
+          <!-- About Us -->
+          <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">About Us</h5>
+            <p>
+              We provide the best services to help you grow. Follow us for
+              updates and offers.
+            </p>
+          </div>
 
+          <!-- Links -->
+          <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#" class="text-white text-decoration-none">Home</a>
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none">Services</a>
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none">Contact</a>
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Privacy Policy</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Social Media -->
+          <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Follow Us</h5>
+            <a href="#" class="btn btn-outline-light btn-floating m-1"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="btn btn-outline-light btn-floating m-1"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="btn btn-outline-light btn-floating m-1"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" class="btn btn-outline-light btn-floating m-1"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+          </div>
         </div>
       </div>
-      
-    </div>
+
+      <!-- Copyright -->
+      <div class="text-center p-3 bg-secondary">
+        &copy; 2025 YourCompany | All Rights Reserved
+      </div>
+    </footer>
+
     <script>
-        let image = `url("O.jpg")`
-        document.querySelectorAll(".col").forEach((element)=>{
-            element.addEventListener("click",()=>{
-                element.style.backgroundImage=image;
-                if(winner(image)){
-                    alert("The winner is ",image)
-                }
-                image = image== `url("O.jpg")`?`url("X.jpg")`:`url("O.jpg")`;
-            })
-        })
+      let image = `url("O.jpg")`;
+      let count = 0;
+      document.querySelectorAll(".col").forEach((element) => {
+        element.addEventListener("click", () => {
+          count++;
+          element.style.backgroundImage = image;
+          if (winner(image)) {
+            document.getElementsByClassName("status")[0].style.display = "grid";
+            document.getElementsByClassName("status")[0].style.backgroundImage =
+              image;
+          }
+          image = image == `url("O.jpg")` ? `url("X.jpg")` : `url("O.jpg")`;
+          if (count == 9) {
+            document.getElementsByClassName("status")[0].style.display = "grid";
+            document.getElementsByClassName(
+              "status"
+            )[0].style.backgroundImage = `url("Draw.jpeg")`;
+            document.getElementsByClassName("status")[0].innerHTML =
+              "Draw The Match";
+          }
+        });
+      });
 
-        function winner(image){
-            let element = document.getElementsByClassName("col");
-            console.log(element[0])
-            if(
-                element[0].style.backgroundImage==image && element[1].style.backgroundImage==image && element[2].style.backgroundImage==image ||
-                element[3].style.backgroundImage==image && element[4].style.backgroundImage==image && element[5].style.backgroundImage==image ||
-                element[6].style.backgroundImage==image && element[7].style.backgroundImage==image && element[8].style.backgroundImage==image ||
-                element[0].style.backgroundImage==image && element[3].style.backgroundImage==image && element[6].style.backgroundImage==image ||
-                element[1].style.backgroundImage==image && element[4].style.backgroundImage==image && element[7].style.backgroundImage==image ||
-                element[2].style.backgroundImage==image && element[5].style.backgroundImage==image && element[8].style.backgroundImage==image ||
-                element[0].style.backgroundImage==image && element[4].style.backgroundImage==image && element[8].style.backgroundImage==image ||
-                element[2].style.backgroundImage==image && element[4].style.backgroundImage==image && element[6].style.backgroundImage==image                 
-            ){
-                return true;
-            }
-            return false;
+      function winner(image) {
+        let element = document.getElementsByClassName("col");
+        console.log(element[0]);
+        if (
+          (element[0].style.backgroundImage == image &&
+            element[1].style.backgroundImage == image &&
+            element[2].style.backgroundImage == image) ||
+          (element[3].style.backgroundImage == image &&
+            element[4].style.backgroundImage == image &&
+            element[5].style.backgroundImage == image) ||
+          (element[6].style.backgroundImage == image &&
+            element[7].style.backgroundImage == image &&
+            element[8].style.backgroundImage == image) ||
+          (element[0].style.backgroundImage == image &&
+            element[3].style.backgroundImage == image &&
+            element[6].style.backgroundImage == image) ||
+          (element[1].style.backgroundImage == image &&
+            element[4].style.backgroundImage == image &&
+            element[7].style.backgroundImage == image) ||
+          (element[2].style.backgroundImage == image &&
+            element[5].style.backgroundImage == image &&
+            element[8].style.backgroundImage == image) ||
+          (element[0].style.backgroundImage == image &&
+            element[4].style.backgroundImage == image &&
+            element[8].style.backgroundImage == image) ||
+          (element[2].style.backgroundImage == image &&
+            element[4].style.backgroundImage == image &&
+            element[6].style.backgroundImage == image)
+        ) {
+          return true;
         }
+        return false;
+      }
+      document
+        .getElementsByClassName("status")[0]
+        .addEventListener("click", () => {
+          document.querySelectorAll(".col").forEach((element) => {
+            element.style.backgroundImage = "";
+            document.getElementsByClassName("status")[0].style.display = "none";
+            count = 0;
+          });
+        });
     </script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.css" crossorigin="anonymous"></script>
   </body>
-
 </html>
